@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 769px) {
+  html, body {
+    margin: auto;
+    width: 64%;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+// a {
+//   position: relative;
+//   text-decoration: none;
+//   color: #3F51B5;
+//   cursor: pointer;
+// }
+//
+// a::after {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 2px;
+//   background-color: #3F51B5;
+//   transform: scaleX(0);
+//   transition: .3s ease-in-out;
+// }
+//
+// a:hover::after {
+//   transform: scaleX(1);
+//   transition: .3s ease-in-out;
+// }
+
+i {
+  cursor: pointer;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+li {
+  list-style: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+
+.online {
+  width: 200px;
+  margin: 3px auto;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #ECEFF1;
+  color: gray;
+  font-size: 50%;
+}
+
+.slide-bottom-enter-active {
+  transition: all .3s ease;
+}
+.slide-bottom-leave-active {
+  transition: all .2s ease;
+}
+.slide-bottom-enter, .slide-bottom-leave-active {
+  transform: translateX(-130px);
+  opacity: 0;
+}
+
+.slide-top-enter-active {
+  transition: all .5s ease-out;
+}
+.slide-top-leave-active {
+  transition: all 0 ease;
+}
+.slide-top-enter, .slide-top-leave-active {
+  transform: translateY(-450px);
+  opacity: 0;
+}
+
+.slide-left-enter-active {
+  transition: all .4s ease;
+}
+.slide-left-leave-active {
+  transition: all .0 ease;
+}
+.slide-left-enter, .slide-left-left-active {
+  transform: translateX(-375px);
+  opacity: 0;
+}
+
+.slide-right-enter-active {
+  transition: all .4s ease;
+}
+.slide-right-leave-active {
+  transition: all .0 ease;
+}
+.slide-right-enter, .slide-right-active {
+  transform: translateX(375px);
+  opacity: 0;
+}
+
+.showAbout-enter-active {
+  transition: all .4s ease-in-out;
+}
+.showAbout-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.showAbout-enter, .showAbout-leave-active {
+  transform: rotateZ(180deg);
+  opacity: 0;
+}
