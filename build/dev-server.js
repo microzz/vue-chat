@@ -23,8 +23,6 @@ var proxyTable = config.dev.proxyTable
 
 var app = express();
 
-const router = express.Router();
-
 const server = require('http').Server(app);
 
 const io = require('socket.io')(server);
@@ -55,43 +53,6 @@ io.on('connection', (socket) => {
 
 })
 
-router.get('/ip', (req, res) => {
-
-  let p = new Promise((resolve, reject) => {
-    let info = '';
-    https.get('https://api.map.baidu.com/location/ip?ak=ShnXqDMOm6Xkm3bO1KBhtIf3xsk7hdCd&coor=bd09ll', response => {
-      response.on('data', data => info += data);
-      response.on('end', () => resolve(info));
-    })
-  });
-
-  p.then(info => res.json(JSON.parse(info)))
-
-})
-
-router.post('/AI', (req, res) => {
-  let search = encodeURI(req.body.search) || 'Hello';
-  let userid = encodeURI(req.body.userid) || '';
-  let loc = encodeURI(req.body.loc) || ''
-  let p = new Promise((resolve, reject) => {
-    let info = '';
-
-    http.get(`http://op.juhe.cn/robot/index?info=${search}&dtype=&loc=${loc}&lon=&lat=&userid=${userid}&key=f3aadfae6b4d884b615da2379cbce14e`, response => {
-      response.on('data', data => info += data);
-      response.on('end', () => {
-        info = info.text && info.text.replace('聚合数据', 'microzz ') || '没有找到，看看我的个人网站吧👉https://microzz.com/'
-        // result.data.result && result.data.result.text.replace('聚合数据', 'microzz ') || '没有找到，看看我的个人网站吧👉https://microzz.com/',
-        resolve(info);
-      })
-    })
-  });
-
-  p.then(info => res.json(JSON.parse(info)))
-
-
-})
-
-app.use('/api', router);
 
 var compiler = webpack(webpackConfig)
 
